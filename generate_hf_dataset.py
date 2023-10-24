@@ -37,11 +37,13 @@ def generate_dataset_dict(file_lists):
 
 if __name__ == "__main__":
     file_lists = {
-        "train": ["train_file1.txt", "train_file2.txt"], 
-        "test": ["test_file1.txt"], 
-        "validation": ["validation_file1.txt"]
+        "train": ["gen/train.txt", "gen_logical/train.txt", "para/train.txt", "para_logical/train.txt"], 
+        "test": ["gen/test.txt", "gen_logical/test.txt", "para/test.txt", "para_logical/test.txt"], 
+        "validation": ["gen/val.txt", "gen_logical/val.txt", "para/val.txt", "para_logical/val.txt"]
     }
     
     dataset_dict = generate_dataset_dict(file_lists)
-    
-    print(dataset_dict)
+
+    # dataset_dict.push_to_hub("ezishiri/robot_commands_dataset") # push your dataset to HF for ease of access 
+
+    print(dataset_dict['train'][0]) # make sure things are formatted correctly!
